@@ -1,0 +1,6 @@
+{
+  "appId": "digaus.capacitor.plugin.demo",
+  "appName": "capacitor-plugin-demo",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

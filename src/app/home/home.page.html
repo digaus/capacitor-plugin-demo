@@ -1,0 +1,66 @@
+<ng-container *ngIf="state$ | async as state">
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+          <ion-title>
+            Capacitor Plugin Demo
+          </ion-title>
+          <ion-progress-bar type="indeterminate" *ngIf="state.loading"></ion-progress-bar>
+        </ion-toolbar>
+      </ion-header>
+      
+      <ion-content>
+        <ion-item-divider>Wifi</ion-item-divider>
+        <ion-button expand="full" color="light" color="primary" (click)="getIP()">Wifi.getIP</ion-button>
+        <ion-button expand="full" color="light" color="primary" (click)="getSSID()">Wifi.getSSID</ion-button>
+        <ion-button expand="full" color="light" color="primary" (click)="disconnect()">Wifi.disconnect</ion-button>
+
+        <ion-item>
+            <ion-label>
+                SSID
+            </ion-label>
+            <ion-input [(ngModel)]="ssid"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+                Password
+            </ion-label>
+            <ion-input [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <ion-button expand="full" color="light" color="primary" (click)="connect(ssid, password)">Wifi.connect</ion-button>
+        <ion-button expand="full" color="light" color="primary" (click)="connectPrefix(ssid, password)">Wifi.connectPrefix</ion-button>
+
+        <ion-item>
+            <ion-label>
+                Current SSID
+            </ion-label>
+            <ion-input readonly="true" [value]="state.ssid"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+                Current IP
+            </ion-label>
+            <ion-input readonly="true" [value]="state.ip"></ion-input>
+        </ion-item>
+
+        <ion-item-divider>FileServer</ion-item-divider>
+        <ion-button expand="full" color="light" color="primary" (click)="start()">FileServer.start</ion-button>
+        <ion-button expand="full" color="light" color="primary" (click)="stop()">FileServer.stop</ion-button>
+        <ion-item>
+            <ion-label>
+                Server Url
+            </ion-label>
+            <ion-input readonly="true" [value]="state.fileUrl"></ion-input>
+        </ion-item>
+      </ion-content>
+      <ion-footer>
+                 
+        <ion-item color="warning">
+            <ion-label>
+                Last Error
+            </ion-label>
+            <ion-input readonly="true" [value]="state.error"></ion-input>
+        </ion-item>
+
+      </ion-footer>
+      
+</ng-container>
