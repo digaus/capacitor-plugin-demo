@@ -20,7 +20,6 @@ export class HomePage implements OnInit {
     public ssid: string;
     public password: string;
 
-
     private directory: GetUriResult;
 
     constructor() {}
@@ -39,10 +38,10 @@ export class HomePage implements OnInit {
         this.state$.next(state);
     }
 
-    public async connect(ssid: string, password: string): Promise<void> {
+    public async connect(ssid: string, password: string, isHiddenSsid: boolean = false): Promise<void> {
         state.loading = true;
         this.state$.next(state);
-        await Wifi.connect({ ssid, password })
+        await Wifi.connect({ ssid, password, isHiddenSsid })
                   .then((res: {ssid: string}) => state.ssid = res.ssid)
                   .catch((err: any) => state.error = err.toString());
         state.loading = false;

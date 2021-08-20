@@ -3,10 +3,10 @@ include ':capacitor-android'
 project(':capacitor-android').projectDir = new File('../node_modules/@capacitor/android/capacitor')
 
 include ':capacitor-community-file-server'
-project(':capacitor-community-file-server').projectDir = new File('../../community-capacitor-file-server/android')
+project(':capacitor-community-file-server').projectDir = new File('../node_modules/@capacitor-community/file-server/android')
 
 include ':capacitor-community-wifi'
-project(':capacitor-community-wifi').projectDir = new File('../../community-capacitor-wifi/android')
+project(':capacitor-community-wifi').projectDir = new File('../node_modules/@capacitor-community/wifi/android')
 
 include ':capacitor-app'
 project(':capacitor-app').projectDir = new File('../node_modules/@capacitor/app/android')
