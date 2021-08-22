@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { FileServer } from '@capacitor-community/file-server';
-import { Wifi } from '@capacitor-community/wifi';
+import { FileServer } from '@digaus/file-server';
+import { Wifi } from '@digaus/wifi';
 import { GetUriResult, Directory, Filesystem, Encoding } from '@capacitor/filesystem';
 import { Device, DeviceInfo } from '@capacitor/device';
 
