@@ -1,13 +1,13 @@
+/* eslint-disable max-len */
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { FileServer } from '@capacitor-community/file-server';
 import { Wifi } from '@capacitor-community/wifi';
 import { GetUriResult, Directory, Filesystem, Encoding } from '@capacitor/filesystem';
 import { Device, DeviceInfo } from '@capacitor/device';
 
 
 
-const state: {ssid?: string, ip?: string, loading?: boolean, error?: string, fileUrl?: string} = {};
+const state: {ssid?: string; ip?: string; loading?: boolean; error?: string; fileUrl?: string} = {};
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
@@ -15,7 +15,7 @@ const state: {ssid?: string, ip?: string, loading?: boolean, error?: string, fil
 })
 export class HomePage implements OnInit {
 
-    public state$: BehaviorSubject<{ssid?: string, ip?: string, loading?: boolean, error?: string, fileUrl?: string}> = new BehaviorSubject(state);
+    public state$: BehaviorSubject<{ssid?: string; ip?: string; loading?: boolean; error?: string; fileUrl?: string}> = new BehaviorSubject(state);
 
     public ssid: string;
     public password: string;
@@ -76,27 +76,6 @@ export class HomePage implements OnInit {
         state.loading = false;
         this.state$.next(state);
     }
-
-    public async start(): Promise<void> {
-        state.loading = true;
-        this.state$.next(state);
-        const path: string = this.directory.uri; // "C:\\Users\\User\\Documents\\files"
-        await FileServer.start({path, port: 8080})
-                        .then((res: {ip: string}) => state.fileUrl = 'http://' + res.ip + ':8080/test.txt')
-                        .catch((err: any) => state.error = err.toString());
-        state.loading = false;
-        this.state$.next(state);
-    }
-
-    public async stop(): Promise<void> {
-        state.loading = true;
-        this.state$.next(state);
-        await FileServer.stop()
-                        .catch((err: any) => state.error = err.toString());
-        state.loading = false;
-        this.state$.next(state);
-    }
-
 
     private async initFolder(): Promise<void> {
         const device: DeviceInfo = await Device.getInfo();

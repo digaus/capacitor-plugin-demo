@@ -7,7 +7,7 @@
           <ion-progress-bar type="indeterminate" *ngIf="state.loading"></ion-progress-bar>
         </ion-toolbar>
       </ion-header>
-      
+
       <ion-content>
         <ion-item-divider>Wifi</ion-item-divider>
         <ion-button expand="full" color="light" color="primary" (click)="getIP()">Wifi.getIP</ion-button>
@@ -42,18 +42,9 @@
             <ion-input readonly="true" [value]="state.ip"></ion-input>
         </ion-item>
 
-        <ion-item-divider>FileServer</ion-item-divider>
-        <ion-button expand="full" color="light" color="primary" (click)="start()">FileServer.start</ion-button>
-        <ion-button expand="full" color="light" color="primary" (click)="stop()">FileServer.stop</ion-button>
-        <ion-item>
-            <ion-label>
-                Server Url
-            </ion-label>
-            <ion-input readonly="true" [value]="state.fileUrl"></ion-input>
-        </ion-item>
       </ion-content>
       <ion-footer>
-                 
+
         <ion-item color="warning">
             <ion-label>
                 Last Error
@@ -62,5 +53,5 @@
         </ion-item>
 
       </ion-footer>
-      
+
 </ng-container>

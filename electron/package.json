@@ -21,9 +21,7 @@
   },
   "dependencies": {
     "@capacitor-community/electron": "^4.0.1",
-    "@capacitor-community/file-server": "file:../../community-capacitor-file-server",
     "@capacitor-community/wifi": "file:../../community-capacitor-wifi",
-    "@digaus/wifi": "0.0.1",
     "chokidar": "~3.5.2",
     "electron-is-dev": "~2.0.0",
     "electron-serve": "~1.1.0",
